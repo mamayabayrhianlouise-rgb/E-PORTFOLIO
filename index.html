@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rhian Louise L. Mamayabay | Electronic Professional Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+    --bg:#faf6f1;
+    --card:#fff;
+    --ink:#2e2a33;
+    --mute:#6b6572;
+    --acc:#b5485f;
+    --acc2:#7a8f7c;
+    --soft:#f3e7e6;
+    --line:#eadfd8;
+}
+
+@media 
+(prefers-color-scheme:dark)
+
+{:root:not([data-theme="light"])
+{
+    --bg:#1d1a21;
+    --card:#27232d;
+    --ink:#f1ebf0;
+    --mute:#b4abb8;
+    --acc:#e58aa0;
+    --acc2:#a3b8a5;
+    --soft:#33282e;
+    --line:#3a3440}
+}
+
+:root[data-theme="dark"]{
+    --bg:#1d1a21;
+    --card:#27232d;
+    --ink:#f1ebf0;
+    --mute:#b4abb8;
+    --acc:#e58aa0;
+    --acc2:#a3b8a5;
+    --soft:#33282e;
+    --line:#3a3440
+}
+
+*{box-sizing:border-box;margin:0}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--ink);font:400 15.5px/1.7 Poppins,system-ui,sans-serif}
+.wrap{display:grid;grid-template-columns:290px 1fr;min-height:100vh}
+aside{position:sticky;top:0;height:100vh;overflow-y:auto;padding:28px 18px;background:var(--card);border-right:1px solid var(--line)}
+.brand{font:700 22px/1.2 'Playfair Display',Georgia,serif;color:var(--acc);margin:0 8px 4px}
+.tag{font-size:12px;color:var(--mute);margin:0 8px 18px}
+
+nav button{
+    display:block;width:100%;text-align:left;background:none;border:0;color:var(--ink);font:500 13.5px/1.35 Poppins,sans-serif;padding:10px 12px;margin:2px 0;border-radius:10px;cursor:pointer;transition:.2s}
+nav button span{
+    color:var(--acc);font-weight:600;margin-right:8px}
+nav button:hover{
+    background:var(--soft)}
+nav button.on{
+    background:var(--acc);color:#fff}
+nav button.on span{
+    color:#fff}
+
+.toggle{
+    margin:16px 8px 0;
+    font-size:12px;background:none;
+    border:1px solid var(--line);
+    color:var(--mute);
+    padding:6px 12px;
+    border-radius:20px;cursor:pointer
+}
+main{
+    padding:0 0 40px;min-width:0
+
+}
+
+.hero{
+    padding:56px 6vw 44px;
+    background:linear-gradient(135deg,var(--soft),var(--bg) 70%);border-bottom:1px solid var(--line)
+}
+
+.hero small{
+    letter-spacing:.18em;
+    font-size:11.5px;
+    color:var(--acc2);
+    font-weight:600
+}
+
+.hero h1{
+    font:700 clamp(30px,5vw,50px)/1.15 'Playfair Display',Georgia,serif;
+    margin:10px 0 6px
+}
+
+.hero p.role{
+    font-size:17px;
+    color:var(--acc);
+    font-weight:500
+}
+
+.chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:18px
+}
+
+.chips span{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:5px 14px;font-size:13px;
+    color:var(--mute)
+}
+
+.prep{
+    margin-top:14px;
+    font-size:12.5px;
+    color:var(--mute)
+}
+
+section{
+    display:none;
+    padding:40px 6vw 10px;
+    max-width:980px;
+    animation:in .4s ease
+}
+
+section.on{
+    display:block
+}
+
+@keyframes in{
+    from{opacity:0;
+        transform:translateY(10px)}to{opacity:1;transform:none}
+    }
+
+h2{
+    font:700 clamp(24px,3.5vw,32px)/1.2 'Playfair Display',Georgia,serif;margin-bottom:6px}
+h2::after{content:"";display:block;width:54px;height:4px;border-radius:4px;background:var(--acc);margin:10px 0 24px}
+
+h3{font-size:16px;margin-bottom:2px}
+.card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px 24px;
+    margin-bottom:16px;
+    box-shadow:0 4px 18px rgba(80,50,60,.05)
+}
+
+.card p+p,.card ul+h3,.card p+ul{margin-top:10px}
+
+.meta{
+    color:var(--mute);
+    font-size:13.5px
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;flex-wrap:wrap}
+.date{color:var(--acc);
+    font-size:13px;
+    font-weight:600
+}
+
+.label{
+    font-size:12px;
+    letter-spacing:.12em;
+    color:var(--acc2);
+    font-weight:600;
+    margin:26px 0 10px
+}
+
+ul{
+    padding-left:20px}
+    li{margin:5px 0}
+    li::marker{color:var(--acc)
+    }
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px
+
+}
+.grid .card{margin:0}
+a{color:var(--acc);word-break:break-all}
+
+table{width:100%;border-collapse:collapse;font-size:14px}
+
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+
+th{color:var(--acc);font-size:12px;letter-spacing:.1em}
+.wide{overflow-x:auto}
+
+blockquote{
+    border-left:4px solid var(--acc);
+    background:var(--soft);
+    padding:16px 20px;
+    border-radius:0 12px 12px 0;
+    font-style:italic
+}
+
+blockquote cite{
+    display:block;
+    margin-top:8px;
+    font-style:normal;
+    font-size:13px;color:var(--mute)
+}
+
+.pager{
+    display:flex;
+    justify-content:space-between;
+    padding:18px 6vw 0;
+    max-width:980px
+}
+
+.pager button{
+    background:var(--card);border:1px solid var(--line);color:var(--ink);
+    padding:10px 18px;
+    border-radius:24px;font:500 13px Poppins,sans-serif;cursor:pointer
+}
+.pager button:hover{background:var(--acc);
+    color:#fff;
+    border-color:var(--acc)
+}
+
+@media(max-width:820px){
+
+.wrap{display:block}
+aside{position:sticky;
+    top:0;height:auto;
+    z-index:5;padding:10px;
+    padding-top:calc(10px + env(safe-area-inset-top,0px));
+    border-right:0;
+    border-bottom:1px solid var(--line)
+}
+
+.brand,.tag,.toggle{display:none}
+
+nav{
+    display:flex;
+    overflow-x:auto;gap:6px;
+    padding-bottom:4px
+}
+
+nav button{
+    white-space:nowrap;
+    width:auto;
+    border:1px solid var(--line)
+}
+
+nav button span{
+    display:none
+}
+
+.hero{
+    padding:36px 20px 30px
+}
+section{
+    padding:28px 18px 6px}.pager{padding:16px 18px 0}}
+
+html{
+    scroll-behavior:smooth}
+.wrap{display:block}
+
+aside{position:sticky;
+    top:0;height:auto;
+    z-index:10;padding:12px 4vw;
+    padding-top:calc(12px + env(safe-area-inset-top,0px));
+    border-right:0;
+    border-bottom:1px solid var(--line);
+    overflow:visible
+}
+body::before{
+    content:"";
+    position:fixed;
+    inset:0 0 auto;
+    height:env(safe-area-inset-top,0px);
+    background:var(--card);z-index:11
+}
+.brand{
+    margin:0;
+    white-space:nowrap;
+    font-size:16px}
+
+.tag{
+    display:none
+}
+nav{
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    flex:1;
+    scrollbar-width:none;
+    padding:2px
+}
+
+nav::-webkit-scrollbar{display:none}
+nav button{
+    display:inline-block
+    ;width:auto;
+    white-space:nowrap;
+    font-size:12.5px;
+    padding:8px 14px;
+    border-radius:20px;
+    margin:0;
+    border:1px solid var(--line)}
+nav button span{
+    display:none}
+
+.toggle{display:block;
+    margin:0;
+    white-space:nowrap
+}
+
+.hero{
+    text-align:center;
+    padding:90px 6vw 80px;
+    background:radial-gradient(ellipse at top,var(--soft),var(--bg) 70%)
+}
+
+.hero small{
+    display:block}
+.hero small::before{
+    content:"— "}.hero small::after{content:" —"}
+.hero h1{
+    font-size:clamp(36px,7vw,72px);margin:16px 0 8px}
+.chips{
+    justify-content:center}
+.cta{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:30px}
+.btn{
+    background:var(--acc);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.08em;
+    padding:14px 28px;
+    border-radius:30px;border:2px solid var(--acc);
+    transition:.2s;
+    word-break:normal
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(181,72,95,.3)}
+
+.btn.ghost{
+    background:none;
+    color:var(--acc)
+}
+
+.btn.ghost:hover{
+    background:var(--acc);color:#fff
+}
+
+section{
+    display:none;
+    margin:0 auto;
+    padding:60px 6vw 10px}
+    section.on{display:block
+}
+
+.eye{
+    font-size:12px;
+    letter-spacing:.22em;
+    color:var(--acc2);
+    font-weight:600;margin-bottom:8px
+}
+
+h2{
+    font-size:clamp(28px,4.5vw,44px)
+}
+footer{
+    text-align:center;
+    padding:50px 6vw 40px;
+    color:var(--mute);
+    font-size:13px;
+    border-top:1px solid var(--line);
+    margin-top:50px
+}
+.pager{
+    display:none
+}
+
+@media(max-width:1100px)
+{.brand{display:none}}
+@media(max-width:820px)
+{.toggle{display:none}
+
+.hero{
+    padding:60px 20px 50px}section{padding:56px 18px 6px}
+}
+.avatar{
+    display:block;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    object-fit:cover;
+    object-position:center top;
+    margin:0 auto 26px;
+    border:5px solid var(--card);
+    box-shadow:0 0 0 3px var(--acc),0 14px 34px rgba(80,50,60,.22);
+    background:var(--soft)
+}
+
+@media(max-width:820px){
+    .avatar{width:140px;height:140px}
+}
+.menu{
+    max-width:1000px;
+    margin:0 auto;
+    padding:60px 6vw 10px
+}
+
+.menu .eye{
+    text-align:center
+}
+.mgrid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:14px;
+    margin-top:18px
+}
+
+.mcard{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px 18px;text-decoration:none;
+    color:var(--ink);
+    font-weight:500;
+    font-size:14px;
+    line-height:1.4;
+    word-break:normal;
+    transition:.2s
+}
+
+.mcard b{font:700 24px 'Playfair Display',Georgia,serif;color:var(--acc)}
+.mcard:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 10px 24px rgba(80,50,60,.12)}
+.pager{margin:0 auto;gap:12px;padding-top:30px}
+.pager button{max-width:48%}
+.brand{cursor:pointer}
+
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside>
+ <div class="brand">Rhian Louise L. Mamayabay</div>
+ <div class="tag">Electronic Professional Portfolio</div>
+ <nav id="nav"></nav>
+ <button class="toggle" id="theme">Toggle light / dark</button>
+</aside>
+<main>
+<header class="hero">
+ <img class="avatar" alt="Portrait of Rhian Louise L. Mamayabay" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCAGkAaQDASIAAhEBAxEB/8QAHQABAAEFAQEBAAAAAAAAAAAAAAQBAgMFBwYICf/EAEMQAAEDAgQDBQYDBgUEAQUAAAEAAgMEEQUSITEGQVEHEyJhcQgygZGhsRRCwRUjUoLR8DNDYnKiFiSS4fE0U2Oywv/EABoBAQEBAAMBAAAAAAAAAAAAAAABAgMEBQb/xAAlEQEBAAICAwABBQEBAQAAAAAAAQIRAwQSITFBBRMiMlFhMxT/2gAMAwEAAhEDEQA/APqe+lkREBERAREQEREBERAREQEREBECICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIirQiIoyIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiE3RAREQERFWhERRkREQEREBERAREQEREBERAREQEREBERAREQEUavxGkwulfVVtRHTwxi7nvNgP76LivGvtF0tK+WlwGMSsF2mqfpr/pCmx22pqoqSEzTyRxRjd0jw1o+JWuHFWEukdE2vpXSDTKyZriD6XXx5jHa7jOLzOfVTSPuTbO/Pk/2l1w0+bQCosfati9O+MtqZZA29+8eL69HAAjlpqPJUfblPVNnAcHtc3TYEFXOnyStZcWdfXoRZfLXBPbU+OIwyvMLjYd3nOVzuTmjk6+4Gh330PpuNvaOo8Po448FDZauSPNI5zrhjrAWA57HXz2U2O/PrYWENu5x6NaT9laMQp/zOdHra72lo+ZC+L6rt54vrJi5le6FmbM1rXcvPkVKoe33i+nkD3VbJQNAHMB06HqqPs64OxvdVXz/wAE+0ZQzTxU2I0bKJz3AWa/924noPyn6eS7nhWL0eM0cdXRTMlikFwWm6bE1ERAREQEREBERAREQEREBERAREQEREBES6AiIq0IiKMiIiAiIgIiICIiAiIgIiICIiAiIgIiIC1vEPEOG8L4TPiuLVTKalhF3OcdSeQA5k9FkxvGqHh7CqnFMSnbBSUzC+R55DoOpPIL407U+03Ee0fGDPM4wYdAS2kpWk2Y2/vHq88zy2ClqpXaX2uYtx7iMzmzTUmFscW09KDY5drm3M81zySYA9TsscsxFw3Tqeiw2u2+zep3KSIrK4nMSRbzUV29w3N52us77NANvmo00rrHx6dARZUWmV7HBzM0bmm7SNDdRpJZHv8AESfMqvie6wO62rMMdNh8rrHvIyNfKyzclk218ModewPqpUL/APVmPRRA5sZyA7HW6kxFr9iL+q0ifFLlIdaxG5XQezjtXxrgTEWd3O+ooHECSldqC2/5b7Fc6Y22nLqFkzujN3C7L+8OSlWPvXgzjfB+OcKbiGFTZgNJInaPidzBC9AvhLgzjTFOCcZixTCpgyUXDmOvklbza4cwvsjgDjrDu0DAI8UoCWPFmTwneKS2o9Oh5pKWPSoiKoIiICIiAiIgIiICIiAiIgIiICIiAiIq0IiKMiIiAiIgIiICIiAiIgIiICIiAiIgKjnBrS5xAA1JPJVXHPaI7S3cMYM3hzDpSzEMTicZpGnWGDY/F2oHldBy/t27V38Z4q7B8LnLcFoJNHsP/wBTINC8+Q1AHxXH3y3125AdFdI7OfDaw00WHL3h12WFq1jTJ4zcN5DqsNRV90ckIaXHmdcvwV805zd3Hvt6BRnNawZYxe/nclU0jyCWR13Oe71NvoslPhclSfC0k+S2+F4FNUSsBiBc42F17zDOFO6ia+OOMvy3NyQL9Fw8nNMXZ4utlm8hhPDYfmbO0M00JH1W2xGgcyH8OxmQaAva33jtoPRewp+H5JX/AL0MBy7NbYNF/NUnwWSWMsdHa1wD+b11XB/9EdqdPKT44/X4U9kpAic0XIuQozInQ6d7b1Ngum4hgzQHwSROJBNnO1sehPNecrOFXPZnp8p6g8lzY88rrZ9XKV56KQgg52/A3U6J3hJsHN5t/p/RQKqhfRPIkgGbq3mqQTuBJDjYbttay5pduvcdfWxae7I5s5eS9r2c8f4jwHjkFdROc+nc4MqafNZk0fn5jkeS8TG8PZe9ws0LzC4NduOXVB9/YHjNJxBhNLilDIJKepYHsN/p6qcvm/2bu0T8HWP4VxGYiCoOajLtmyX1b8fuPNfSC1GbNCIiqCIiAiIgIiICIiAiIgIiICIiAiIq0IiKMiIiAiIgIiICIiAiIgIiICIiAiIgh4xi1JgWFVWJ18oipaWMyyPJ2A/U7BfDHG/FdXxfxHiGM1gtJVSlzWA/4bNmtHoAPiu5+07xwWMpOEKSSxflq6wtPLXIw/Iu+S+bnOzSFxB01Wa1Fh8DQwe8VQhoBP5evQJclxeVhr3ZKdwHMhgt57/RRUaBxlkIGuc3P9F6nAuGnzBkkzTd+1uSgcKYTJWSh5jBaDfUaALq+C4M2KFps1xtppay6nY5vH1Ho9Pq+Xuo+BYBGHCWRo8As3TRelpsPGe+zQpNJQiJrWtGi2UEGZ2jQANLW3XmZclr3MOGYz0hxUQNmhhdysOikGgY5h5n02WyhiDbnLqrjA1xJIOq47W/CPJ1uDxucczSQOm5WoqME7rTuyTf3gF7+Sm1c3LbnsoM1EDc2sFvHksYvFK5Xi/Cn4ljrxl3Qt0XO8bwObDZy7I7KDuvoarw0OAOUWXlOJOGWVNNI4tuQCdAu5wdjV1XQ7XTmU3PrjlHM0CwN231H6qc7xm+YZtwepUWai/AVr4XA2IPKyksJc0Ha2/2+69OXc3HhWWXVS6GslpZ46iB743xPEjXNNi0g8viF9rdl3HEPHnCdNiOZv4uL9xVMB92QDf0cLEevkviIDI8na+pB/v4rqfYBx07hPi2PD6mXLhuJuEMmc6RvOjH+Xi8J8neSsS+31yioqrTAiIgIiICIiAiIgIiICIiAiIgIiKtCIijIiIgIiICIiAiIgIiICIiAiIgKPiFbDhtBU11Q7LDTxOlkPRrRc/QKQuS+0lxW7AeBRhcL8tRjEv4fQ6iJviefjoPilHzFxlxNU8VcSYhjlTfvK2UvDT+RuzW/AAD4LR/kI/M4/RVmdmcA0bqkpDHeTRv5rDdIg14t1dp9lGmjdVzU8bNS67vnoFJY/uorlurWX+J1+5U/heg/G4s3mGOy39NFnPLxxtcnDh55SPd8KYOKWmjaI9gL+a91h1GR4nCzComEUQhhaA3kLLfU0YIAI2Xh8mflX1HBhMZqMsUBcNBlb1U2niy20SJtgAVJjZr5clxyOe3S4R3Kr3QBWYN2VbWKaTyQ5YCNWn4LC6Mk2LNPNbMtHNRHx5XuOa4PLoteJ5NdLCBcclqa6nD4nAi+ll6CdlxcLV1cZubjRPjOThnHGGspcSa7LpcLzkegLD5gfNdC7SKWw74crfRc7iOaQ35EW+IXs9W+WD5nvYePJ6ZnXkAd+a31B1+ik07w03Bsdr87c/78lhaLh42IOYfqrmeE66AH5hdjTqbfa3ZHxb/ANY8DUFZM/NWQN/DVXXvGC2b+YWPxXs180ezJxQaDHqrAp3/ALuvjzRgn/NZ/Vv2X0urEoiIqgiIgIiICIiAiIgIiICIiAiIq0IiKMiIiAiIgIiICIiAiIgIiICIiAvkn2juJjjnaBLh8cmanwmNtM0DbvCMz/qQPgvq3Eq6LDMPqq6dwbFTROleTyDQSfsvgjiHFZsbxivxOQnvKyd8zj5ucT9lmrGra28wcL2ANla4ZtN8xA/v5rKwgEAaLFezi7YjUJIVmlJEbnaWc4aHmNT+gXtuznC/3bZ3N8RJuSOa8M9rpnRQs1Lj8+X9V2nhLDvw9HG0gC2i6fcz1NPS/TuPeXlXpKSLQW5BbKJuWwIUWABu26nxZdCQvKs2+gwSaZmbdZ3B4No7D1HJY4Gg7qY1lraErUhlV7bOOnJHbeqvDbC4VjzodgQrpmVY45Rc6LC+7t1kcwyNIzWPVWkFjddrbossR5RyGq11Xd1+RWzkaC0kfNQKgBx1WaWuddoWGifDJH2uRouOwm0kmbQgA/EaL6D4npWS4fKDr4br59qGmPEJWWsC57f1C9Po5erHh/qmGrMksOs8O+iuAtryGnwVrG5spHNv1Vx8R6dV33kt7wbjsvDnEmH4lE5wNLUMkdb+EGzh8Wlfc1JUx1tNFUwuDo5mCRhHMEXC/P8AjeWPa6wvvf6H6L7C7CMd/bPZ5QxPcHTURNO7W5sDpdRb8dEREVQREQEREBERAREQEREBERAREVaERFGRERAREQEREBERAREQEREBERBzf2gcfOB9mtcyN+WWveyjbY62cbu/4tK+NZn5n6bC7j9gvoX2scbd+IwLBGPs1rJKyQeZ8LfoHL52ce7jzDd7gFmtfIygWYTztoVjyjNl56C/9+iyufo1pG1zZYXb6b2JH9/3uqyk4ZLAzF4TPJlbHY/quk0fH1NERFDAXMA0N7adVzfBMBmxvGJBGCGMsL/BdApezCSRpzVrgCOYuurzeFy/k9HrTlmP8G5o+0ehBvKSDe1mm69JhvFuGVrA5tQ0HkDuVzup7M5YjpKyzfzBq1svC+M0soc2Yd2NizdcNx4r8rt48nYwvuO80uI089ssjT01WzhqGuj136LkOB1dbTa1GpHT5L3uEVrzC0uJLjvcrrZ4yfHe4uS5/Y9OJGlgcLDyKscQ5upF1rRWEg3NhfQdFSWuDGauOq47pzyNh37Gi2nwWJ1QCCHbDdedxLGxSQPmJOl7DzXPMW42xckSRTEOsbNy6DzP2XJx8fk4ObmnG6zUVkTWmzgCDz2C10uJ04JEkrWnzK4fUcT4xVSjxPsTbwC1/iqMr8UMr2vim8QvluSV2Z1sfzXRy7uX4jsFbNFU0zixzJG6i4NwuDcU0ppMckNiA4hw081vKfGcVw9wkjM8dt2v1Dv781ouKMUZiVUx4aGP2eBtc8wuTh4vDLcdbs885cNX6jQP0aL+669/JZ3ANDhyBPyUWntlaDqHtuPUKS0XaC7mLf8Atd15g03br+U2t9Cu8ezBxB3GMV+CyP0qIhIwF35m76ei4CXFrwHbGzTb5L2vZLjowDjnC6xziGiZrHm+4cbfqpVj7aRUBBFxtyVVUEREBERAREQEREBERAREQERFWhERRkREQEREBERAREQEREBERARFhraqKgpJqudwZFCx0j3HYAC5QfHHtA49+2O0fEwHZmUhbSM9GDX/AJErmTgTURxnkLn1U/H8UdjWN1dbK676iofK433zOJWvo3CapkeeSy1Uh4u7TWwsfldMhLgNzorc+hbbfT+/gspOVrjcXdcBVNPb9muWKmmmeQHFx+S6K3HKSkjDppmNB19VyPh2pkoqN5AdtewG6i/tHE8Uqo6fDop4dcolk1dry9F5mfH+5lXucXNOLCTTscXFWGy10lDK54fmaGnunahwNuXUEKXJS0s0ZMD2kLh2LUFbhHEkEddi80RaI3Pqi1zi0XvcNGptbYdFv+HeJMVxSvoqSnqZ8WhIflJi7iWPLfzOa4F7E+SmXUutyrx9+b1lHupomd4WE5X+fNbnC5C1gaeQWkinZX0YlAzPacrtLEFbHBXOkGpvY21XStsuq9bHxym43YLWeIDfqoVXI97tHWHVb+loY6iK7mAla6vpWxuIIWrLrZjd3TzVTB37vG85QefNQP2DT1LwzIS29ytlVXkmLG7BazEuI4MEjcHljLD33628rc0wzzvqMcmOE95PQYZwxRwsH7hhI/0hbRuFUhZcRM00tZcmrO06Zjo56aDFZqaMuJlaC1jrDa4FgOuqyYL2kOipaSKaeeN72F/79uZkriSSQ4a76D4rs/tckm66U7HDbp0HEuHsPla7PTx+IWuGi64dx1w27B8T72EDuSdr8rrrOF8V/tGEiezJrklodcegPOwtdeO49IrgGgDQLfFy5Y5arj7PFhnhvFz5sojILdmEEDyKm3yseTuw3H9+i14YYnAOGli0+u6k0sly1zvE21nfBenLt4FmrpkntlBaDpqslBO6kqYpmusWOB08jdYiMwyXtl0v8d/kVga8tlGY21v8QqR+gPCuJMxfhzDq2ORsglp2OzN2JyhbVcq9m/G/2v2fCBxu+hqXwXv+WwcPuV1VSJRERUEREBERAREQEREBERAREVaERFGRERAREQEREBERAREQEREBeF7bMddw/wBm2L1Mdu8lY2mbflnNj9Lr3S4X7V2Nim4Tw/CWvAfVVHeuHk0afUn5KVZ9fKc8hzSSXJsNPUrJQtIpny231UKeSzQz+I3WwB7qjY0fmsFkqo/wwSd9fRZaUd49jXC+cht/X/4UZ7rPDRewHyW0wOD8XiNNGBre5H0Cmd1ja5OHHyzkdAwLAGupWl7fC4bBbSDheGCUS01oXg3uvRYNRNbTRtts1bcYa1zdWj1XiXlu31GPB6eF4i4Gk4mED6uWBk0IysniuHFvQjYqRwhwa3hKodVQTwz1T292JJGk92072A0uV7H9lNuBrZSIMKja65Bt6rknYy/1xXqYX8NLS4Iaapqqt8jHxSsALGNLRmBvffdUoYxDK4gWBK9BUhrY8jBZtlo5WObUAN2vqurnlcrt3eLCYzT1FHVB1OGg/ELWYlMXhwJ5KTTMtTiyhTMMstidArcrrTlxxk9oD6F5pJZIWF0ljlF9zyXn6zAKM4FX0Nc2QVU7PDUSsuM17i5F7C69/RxNa0tI0cFErsNsSRfyIXLw8njXT7HF+56r56jwHiA1jKNsVW0WdGxjpnNhDCddbgZV7nF+G8Hp+F6LCgWVVVTxgOfCLgONydelzZdAFESbPZHJflI0G6qcLa/T8PE0D+FoC7V7d1p08ehjLvbknDvDVXQVAlY+YMtYMcb5R0WzxnDS+J737gXXRH4c2PQNAC0GP0gELrDkVwXluWXtz/sTHHUcRxFndVr2O92+YfqoocYS9gNw3TTmFseKSKauDyNnW+a1D393KT+X9CvX4ct4x892cdclbFzg5kb22v7rvloo8/g23zKylfnvET7wsPXkrnkyNvpfY+oXK676H9kvHQJ8awcvuJQ2paPMXB+lvkvpJfEns/Y8zBu0vCzK/u46lzqdx5eIaX+K+2hspCqoiKgiIgIiICIiAiIgIiICIirQiIoyIiICIiAiIgIiICIiAiIgL5O9qzGWVXGcGHNeT+DpmFwvoHOubfUL6wOy+HO3OvbX9qHEEhIcGT5NOjQB+izk1i57G0TVDR/CpUsmd7WchqVForl8jzsB91c59i92m1lCrmPvJqd778gvU8AQd/jee12xheQY7xXcf/garoHZhEC+eY7usFw9nLXHXd/TsN80rsOGnKxnot1C660FCfCDdbqCUheHr2+xmM0ntYCL2CPactmjzV0RzNBHNXSyiNuui1pw5TTV1rizfQALWxESz3toFlxSpfPLkZoALkrDSERi+5JWdMY323zC0RBo3UB5DZR1W5igjMDMr2kka30stPXMLZAARda8WvLfxOpyHObbmp8jGkWdYhaWhqjHJletyyRs7b6JpjXtiNM0m4A8ljMQAUvL4TlWA3Au7qlxrkmERKiNuQ6LzGMxh0MgPMaL0dS/wndeexR2ZrmqT61lhPFwXj8AVQtzeF59k3ewkHdosSt92ku7rEmRg6hxcvL0khylx8wfmvd68/hHx/d1+7YlMmLHg5tiAp+YOIc21pLg+R/v7rUOd4iQFJo6jQxO9QVzuo2eDVrsKxenq2Ocx0MrZA5psRY3/RfoLw/iTcYwOhxBrmuFRAyQlp0JI1+q/PB+t3fmI0X2r7PWO/tzsww0k3fSudTOv/psR9Cp+SulIiKoIiICIiAiIgIiICIiAiIq0IiKMiIiAiIgIiICIiAiIgIiILJXiONz3EBrRmJPIBfnfxfiRxTiLE64uzGqqpZb9QXG30X3tx3if7G4LxzEB70FDM9vrkIH1IX57zgul1tfLYac+azWsV0PhpyBu5YpTlYfMhZRyA2GqjzOzNv0J0Q0xvflYT1Fh5LqfZwwMoi63vELkNZKWstz5rrXZxMX4XGQdyLrq9r+j0P07LXK6hRHw2+i3FNJltey8/SEkDyW3p5MxAI+K8mzT63HOablj/D4Vhq3veLNCQPBIClAMt4rJtwcmTytXP8AhpHiTcgFeci4lZLVSQtbK3I+2YtOUnyK9ti2GQVoOfR3VuhWjbw3A1wjadCdbrUk/Lh8qkQ4u4MBLr+pWvdxfRRYnFS1D5GukdlDu6cWj1dsFsIuGGxzhr6hzor6C30WWtwCGZphHhH5XAaha1F/ct9ROztqJYzGb3K2cBMR3PxUPBcJbTBuaV0hA0JGgW2nhBGYLGlmftVsxLLaLHJbUXUZ8/duaC1xzG3h5eqSSWvYquzijVT76LQYi4AOJOmq29QSNyvP41MIaZ7ugKmOPtObOSOCdo8wmx6osNIzlutDRN8Lx5LNxHVmsx6rdnzMEh+KtpxljkfyzWXvcc1jI+J58/Lkyqh0bY/NWscGPDuSvlbpbmOawki+vxW3E2sU+cNtY2PzuF9L+yTjTjHjeCPeCGls7G31FrA/RzfkvlylktoTuuzezZjYwvtEpoS5wbWgwEDY5mm31a1ZXXp9kIiLTIiIgIiICIiAiIgIiICIirQiIoyIiICIiAiIgIiICIiAiIg5n7ROM/sjsvxBrb56ySKm06F2Z30aR8V8Sh2dxcd19Ve1xicdPwxg1D3hEs9S+QMDrXa1trkc/eXykw5ndBc/dZv1vH4ukeGhw6KLO6wDem6yvdfQ6gnVRJZMzi7dQRqo5rBdP7KqwSYa6L80T8p/RcxmF7Er0nZvi4w/GzSyuDY6nT+YbLHNjvBy9Xk8eWV3+ikAstxAS2xXnMPqGljSDdehpX940FeLlH1HHn6S2VIYdVccRGbLfVQMRY9rCWbgLzNTjdTRSZpqaYxnQPa24upJtMsvb2slU3KSfmoLKyM1TW94G3Nr2uvHvx2uriLQvEY/0nVSKbES1ro5GOZmFrlpC3+1fy7HFxS+3s3vmfI0MyvBOjgVmY/NJbMx5G+U7Lx9Nizoc8bKgt11DXbqRUcQEtbG2RoLf4RYha8I3lw17innANvsFJdUNczWy8VQ8UwtAjncA62puthBjcM4PdyBwHRY1p1c8LjfbbT2DrrBI7p0Vsc/fN11VJBlBWY5ccvSHPJcXtY+a8lxpXtoMGq6h58McTnfFenqZRbVch7Z8dEFDBhcTwZKo53joxp/U/Zdjgw8s5HT7nN44WuStcZZjIfee4uK2MIvAyM6FzyStdTMzSDXZbMHSEc8pXsvllS24BtqQokrbEO2vuFs4GgtA3AIUStiyW6A/ogjxOs4ar2/ZpiRw/jDBK5rnNdTVcMlhzs8Aj5Erwt8rr/EL0PCjx+2aNpJGeaMAgkEEuGotzWa1H6MCxFxtyVVEwqodVYZSTuILpIWOdbrYX+qlrTIiIgIiICIiAiIgIiICIirQiIoyIiICIiAiIgIiICIiAiIlHyx7XFeZOIsKos1wynD/wDbq6/z0+S+emANjv5Fdm9qGuNT2kSwt2paVjDfzF/1XFy4iMg6arDkk9Mb5LnTko8bS5/6K+Rwt6lVpxci/UD6pIlW1TMsbTbVQy99PUiWNxa9rg5rhyO621dFaC5Gx0WrqB47+QW2HbeCOJY8YwqGUuHetGSRt/dcF73Dq29hdfMvDePTcP4i2dhJhcQJWD8w6+oXcsDx6nrYo6imlD43i4IXldnhuN3Pj3en2fOav1718meOxN9Fq6xrJ4DFkaeeyvp6oSxix5K17SHXGx5Lp609D/rVxPFI8MIu0bFbWCpo5ATIPF+Xw3Ch12HulB7txaeoUOOhxKnBIZG8cjqFzTJ3uHtTGayejMGGhud7Msmtv3YOl/6KjqWhbF3r3QX0sGt13O4+H1WhY/FjrJTNLR0eNllYaqoeM8Nh0Jur5RzXs8evrJPR0VdJ3TKeMuO77bLPT4DTYf3badpblF3EE2cTupdDSd0MzhqVPIzC3RYyy36dDl5JnfUZaWzItVhqKrQ6WVHTd2032WtrK1oGl1jHFx+WkXFsQjo6aWomkDI42lziTsF818T47LxHjVRXvuGOOWJv8LBsF7PtS43/AGg9+CUModCCO/ePzEflHpzXOmN1ufkvV63D4zdeD3ux55eGPyJNIwdLk2ClPuajTS2itoYtGvP+5ZYxeYErtvPS4LMcAeZ+ysxWImxHX9Fl7sfuTtZwv8Sq4gbshdbci/yIQaVzTlv00W0wCfucQpni945WPFuocCoUjAA4cid1fQHLKDcixvcclK1i/RnhQ34awx2t3U7Cb73IutstJwVKJ+EsIlBuHUsZB66LdqsiIiAiIgIiICIiAiIgIiKtCIijIiIgIiICIiAiIgIiICodlVEHw37QdS6btMx5zh/m5AQdwLN1+XJcymcctue69/21Oim4+xeaM3MmIVIdqNw+x0XOpz4yuNyMbr3AUyFmWFjjv4fuocfjmsPNbN0dqdrTyy/YlbjFq+rZmikbzFrLUTRWAJHOy3jmZmytO5YHX+C1dQ28cotsM3yTaNaRYnyXtOAsRno435CXMzm7b/ULxrm7Fev4Cj7xz2a2Llxc/wDSux1f/SOsYFjglcGuIB2svVRyNeNeey54yjfBlfFo4agr0GD4wZGiGYlsg6leTlN+49/iz16yevghDyAQpHcZDmFyB5rW0laA291OZUZhvouN2khkZk/K23PTdVNC0HM0eFY4qgNdYc1LdO0RnXRF0iuiI0WN8jYtDuqVNYxlzdeexXGbuLI7uPkrJtx52YpWJYo2Npu4Cy5xxtxXUx0csdI4xkgjvAbEC3JenlinqGl8+o5NXP8Aj0fh6SS1rm4XY4ZPKR0exyZeFrmjbudzJPM7rOxgL2tG3NWxMyMzk2WejbnkuRzAC9bbwE+NuSLobWt8L/qstPCHPudNbBVtna235nWv8VLihAc03HicT8yU2aWEHuGXGgd+quniDqJp5sItfoTYq+Ih1PY87/dWtaTHkPuuaRr8LJs0gCPvIXZRdzdPiFFiPdyj6+hWzpxaZ7Cff2J6qPVU4bOLD3jcKVY+/uzGYz9n+APcLH8FGCPQL1C8T2O1P4js+wg+H/AYQWnTUBe2VjIiIqCIiAiIgIiICIiAiIq0IiKMiIiAiIgIiICIiAiIgIiobW1Qfn32mVRk4zxkECza6pOa2pJkJ1XiXauBK9Tx05w4ixQvuS6qkdrvcm681TRmWUAhYjdZ6KDM8kDZbOaO0QaQLk3+ixU8WS+XcuaPgptSANCNbfotRmrI4iJLHXNE1aeYBr3i+hY4fELdhwE0YB/y23+i0lccs7/V36qU/DWOF2EdF7Xs6LXTPaRq1114w8uhBK9f2eyBteRb3x9lw9j/AM65+r/6R1inpg5ovqCk+F6ZhvyI3CnYdHeNtxyC2LaUv0tdeNctV9DMdvPQVlTSuyvBc0cwFtYMdDm2uPippwkO/Lf4LCcBLj7v0WvJr3F8GLMDjmdofJXTY+xoysdm+CxtwGx9wfJZ4sGyEEgA+ieTW6gSOq606eBh+ZUijwtsWtrk7krbQUbWcrlZpIQwbhS5s+P+tHWwZI3AdFyXtFGRuVx11NvJdhxG7Y3O8lxTtAnE1TMSdGuyhc3W95x0+36468ITnc1tt91MoG/vWknQZnn0AUAOGYG/5brYYcSBO8DQRZfS69h4emwg8Ipm/P1JUnNZjS3Ww5fNRIHawjoR+qzZsjG66AXI+B/qoM0RH4dpv1VA+zw3ext9Fgp5P3RBOgIt8lXNezvX5oBOrXt3BGqkTtD3RPaPdId/fx+6hseGvyu92XT/AGk7fVTqBwe18Tgb7EH5H+qLPr7G9nmYu7NsPgJJMBkh1FjZsjgAfhZdOXHPZmnc/gl0Ljqyplv5Xyn9V2NajGU1RERVBERAREQEREBERAREVaEQooyIiICIiAiIgIitkkZEwyPc1rG6lzjYD4oLkXhuIu2vgLhkuZV8Q008zf8AJowah/8AwuB8SFzTiX2t8PgDo+HeH56l2oE1dIIm/wDg25PzCD6DuvP8V8bcPcK0Uz8WxqhopAxxbHJMO8cbHZu5PwXyDxR2/wDH3FAfFLi/4Cmf/kYe0wi3QuvmPzXPn1EtRM6SV7nPd7zibl3qeazasi7i7EKfEcZqaimLnMllLgSLE6AfooeHwkEyHa2ixuhuZHkaDVT6eHuomZt7XPxUaZaaNwnjva98x+AWSsd+9fbnp+ispnZpHP8A4W5R8dSgk72cAnS91dpYo91qqw5ZR8lpsTeBK4gfmP2W1lcM8kupJzH+i02IOL5XHSzb/ayghv00HkAvV8COy4m0DU3v9F5Nx1PkV6rgV7BisAPvOzfouPm/pXP1v7x3PC7uiaTtb5LeQRiwWowqN3cNBHJbqnaNF4OX19Hx/EmOK6zNgAKuiaBZSWsuVnbk0jCK3JXGEXAtqpeUDkqFlzdXYjthDRcjVYagaKY9yh1LuaSlebx2fuqeRxucrVwTjaoBqhCDtcu9V3LieUthe0gkZTovn7ieYT4pP/peQu/0sd5beV38v46aJ7rNaRuthSOywSn+ID7ha2QaW8lMpy7KW30Lb/Yr1XjflsYJC2SIdXBSJSGki+mQfZa5j8skTr6AgqbL4pmg7ZbKKxxSH3dLkA/RXudlDRzzFRY3kuF+YOqzSOuQ4czdBkkGZmnLUKTST5Zo5CdtHKOw5m287fBUbeN9jz0RY+nvZq4owmipq/D6zEqSnnfIySJs8wYXgghwGY66huy+hmva9oc1wc06gg3BX52DWl1AdYra8P8AHPEXDEmbCMbxCh55IpnZD6tPhPyVxM572/QBF8k4B7UXGmH5I8Rjw3FoxYEyRGKQ/wAzNP8AiukYB7VPDNaRHjOF1+GvO747Ts+lnfRacbtyLzeAdo3CXE7QcJx+gqHH/LMgZJ/4usfovRg3FxseaCqIiAiIgIiICIirQiIoyIiICItdxFjlPw1gOIYzV3MFDTvneBu4NF7DzO3xQYeIOLcB4UgbPjmLUeHsfozv5A0v9BufgFzbiP2m+D8ImfBhkNZjD2/niAjiPo52p+AXzHxlxdiPF+M1WNYlMZKioNw38sTeTG9GgafVaF0xdc6aqK7ZxH7UfFeJF8eE01FhEOoBa3vpbf7naX/lXLse424h4llMmMY3iFcTrllnJYPRvuj5LQmRY3O1QZTMbWBsFhe++91RzrqiqKZgr47uBAGuyxkXNhzWZrxHT5gfE43aD8lnJrH6xubmAYLWc8fIKTUP7tpI/MbC/TZYaWMvc1t9eRKpUP72VwHut0apGquY/u4XEHVUiJs5w3OgVkjsrA0bn6q5hyNDd+iIpUStbE4DmQ1uvRaWpfcu89PkpNZPeoNjZsQIB6nmfn9lBcRvyA0CJVnJei4Oc9mMUpjsH57AnbUc151u69FweAMaoQ42DpmfcLHL/WuXgus4+gsBqhVU2fLkc3RzP4T0W5h3BbstRS0ToIxLTt/esuHD+Nt9v6Ld0jGzRNkZqw6g/ovBy+vpcInU7Q5ut9VMbpZRY7ttbZSY7nksacq9w1uqFVLr6ALFI543sFRZKQLarX1UwDSb7KRIbnmT1WrxHMG91HZ0rxoOQHUqJXkOMsT/AA9PJkALgwu12aLblcEqpDK6SRxuXG5XXe0MmhwqoGc55DkJ/iuf6LkNQb5x6L1ujj/G5PD/AFHL+cxQnjMfJZ4XkPAtu3L8bLDqCUBIc1w2C7zzUnNdvpopxlu1jr9FAfYuNvzC6kQO/cEc2lGoHw3A5GyygktseSxuFiHbg6q+Pca3ugkRG7De2oR24vvcfFWQts5ZspczxC5bugmwEvppNRqBZR2yhw5K6llAilb+bKSokL81zvrqriZJQfbZXicjT9VHvcWVbLTjSfxDwB4jovR4H2g8S4BNTvw7HcSg7geBv4hxYNdspJaR5WXlL+aua60zOlig+5eyHtIZ2j8MirmbHFiVK7uauJm17aPA5Bw+RBC90vjr2dOKn4F2j0lG6QilxVjqORvIuOsZ/wDIW/mK+xUBERAREQERFWhERRkREQFyr2lcZGF9mVRSh1nYjUxU1urbl7voxdVXzt7XOJtEHDmFh/iL56lzb8gGtafq5B81znwubfSyxE6D0V0hzNKsb7oPkgrdUvZL6WVCUBUvYKl7FW3QDc6DcpO7O8Ae6wWVR4Lv6C6xNBc5rLeJ51WLW8YktcYoA+9nPHyCsiaSb9UleLlo22HombK062v9kUt38vk1W1VQIonSaZtmqrT3TLc36n0/otdXTd48EHQe6P1QRXOIZY6km5v0Vjj4wOWiq43N1byRlc0XeACt7gDjFi1DINA2eM/8gtLE29uq2dISx7XN3BuPgpZuabwurK+qcMiaYWke8dVlfH+zpTMbiCQ/vByY7+L06qDwvXNrsKo6gf5sLJB8Rdb17BI3K9uYHQheBnPb6fC7m4o1gNiRoVlAtsTZQ6R5ppRRyE5Lfunu5j+E+Y+qnHQclxuWKfEq0svvqsgbzWCoqBFYNaXyO2aEVhqpGsAY2zpXe61RxS91Tu73WR/vP6/+lLgp3NBlkOaV3vH9AsNe8NisTYbqxi1xPthqRHWUdC06EGZw59B+pXMapviv1C9bx/XPxDiytc912xERN10AA/qV5etaMtwNl73Xw8eOR8328/Pltat1tVaNNVkeABcKwjw+a5XW0ysN48wPuqRA+0pafdcPkVFjNtPJZWOuNNxqipZGliNNlQDcX25q9ri9l9LqpGxA2RV8ZDrOBtc2cPNSGkCxHPT481HaAH2As1/PoVnbdznMta+o8jzQXQW73U3B8JUJru5lc3WxU11rNcNNdlEmaXeLmN0iZJMZvrdXqPA4WtzWduq2wrbVYSSJ2W/hKz2usBP/AHItyb+qtG3wbFJMHxKkxCI2kpZWTtI6tcHfov0JoquOvo4KuF2aKeNsrD1DgCPuvzoYbr7S9nvij/qPs4pIZH5qjDHmifc3OVoBYf8AxcB8FB0xERAREQERFWhERRkREQF8Y+0ZxK3iHtJrGwSiSnw1raJhG2Zty+38ziPgvqLtS4v/AOhuBsTxlhAqGM7qmB5yvOVvyvf4L4Sq53zyvfI4ve9xc5xOridyfMqVYjON1jicSxvorzsVghfYEdCqjOqKl7hVQUIuFbZXqwnRBR2otfzPojBkY6Q+8dAjmuzCMDxHc+SS/wCIGN91ui43Lr0oB4rnkFaCZJLu91v3VJHFjbc3aLE94jjtfVVFKioDfDcuLhr6dFAe4uJc46lXk5jc81a4XRGM7BA2+6rl2WRoFiUF0LczgFsoBZwt0UKlbe5tyU+MWIV0O9dlmICt4XpGfmpi6B2u1jcfQhe+ZY63XFuxavtV4lQOd7zWTtHmDlP3C7NHD3wa7vHNsOS8Ts4+PJY+l6Wcz48bV9TTNnhLSSDyeN2nqPNWUdUXEwVBa2Zm52Dx1CkhpuByUDEIqATMkxCljqIAHNDHx5xmLSG6f7svoupl6+OxbqbSZKi7skPiefkPVXRQd1dzjme7cqzD6VtJRwxtAu1gBIG5spD9r8lYrG421utNjVUImOeT4WNLj6ALbTPABXh+0SvGHcNYjMXEPfF3TD/qcbD7rkwnllI4+W+ONy/xwWsqnVlbUVLzczSuf8yo07czSPJZNAdArXHccl9DJqPlMru7al4turQNFmqG+JYtrBRVAd1kacniHL7LHaxV9vD8EEqncGOAJ8LtlKBaHBrhvqtcx2zTqNh5KfEe8jANg4I1GQtHibe6yDNIzpKBoepVgJc0EDxN+yuuPC9voiVlsJWGwsSL26FYjo53O+qqJBGRfYaj+iS2GV462KLphBs4rOw3tqsMjLG42VYjay3HGkqO03qnW1s0LMDosEJvNKfOyIkjQhd79lLioUHE2I8PTvszEoRNCP8A8se4+LSf/FcDbut9wdj8nDHFOFY3D71FUsmI/iaD4h8RcIP0DRY6eeOqp4p4XB8UrA9jhzaRcH5FZEBERAREVaERFGREVksjIo3SSODWNBc5xOgA3KD5o9rDjEzYnhvCkD/3dPH+NqADu912sB9Ghx/mXzw83uV6TtF4nfxlxli2OuddlVO7ur8oh4WD/wAQF5gnzUi34odlHYSHuHndSVHfpUeoVRnuQ1GoNgqbHRBcse7lVx0O4VsDTK+x1zODR6c1Ks+ssd2gyfmdoFYbNueQ+pWaQ+MhuoboPVYZLWAGzfqsOWo79PE7nyUaQFxy39Ss0jr+mywEkkgKssZGtlaeSyuboetljI1ARFA3mPRXBlrBXDU26K9jAXi/qgkU0eVoupIFljjHhV61GdvWdmeI/s/i+hubMqc1O7+YafUBfRNGczBbZfKmHVT6Gtp6pnvQStlH8pv+i+psOmZLGHxk5XjML9DqPuvK7+H8pk9v9Mz/AI3Fsfd5rmvajWVFRJRU1DUl15w1zIX3cH/luB5rpbGZve1BXjcb4DY+oLsKiZE2qefxT7fvCwm7gHbi/O3munxWY5bru9jHLLDWL0WF1UVTSxiOrinkY0CQMeHEHztsprgMu11peG+DMP4YklnpQ/vZRlc5zr6dFuZHXsdljKTfpyceWVn8vqLUEC65L21V/d4fRUDT4ppzKRf8rBb7u+i6rVvyg6rgfaziBrOLXU97tpIGR/zO8R+4Xa6eHlyT/jq9/k8eK/8AXjdlaRcKqtvqvbfOIlQzxaqO5oDm+ZUqe5KwPGov1WW4wuAsD5q9oBbY8wbIRuqt9wHzUFBoLc7aFZ4ZjYHmNCFhc1I3FrrafFFjZsdZ4cB5+qv0BFtGv19FHhfrvvspLbHwO2OnoVGvo5hN2nmsbD3kL2bub1WWS+QOG7Tld1v1WDMI52v/AIjYqouYS9n3T3XAKgaYpi2+hOnorra+asYvpm/Io1Lrnd/E4lZpX5IHO6BY4W93C0c7LTLKN9FnidbdYG6WV7XaoPtvsB4pHFHZphud+aqw4fgZ7m5uwDKfiwtXRl8p+ytxY7DeLKvh+aS1PicGeNp276O5+rS75BfViAiIgIiKtCIijIub9v8Axb/0r2b14ilyVWJf9hBY6+MHOfgwO+YXSF8re1ZxOcQ4roMAifeLDIO9kHLvZNfo0N+alWOESkAABYjsrnm5WN6QpewUeZ1pmn4LKHarFU27su5g3VRJabtCWtqrYXAxjVXkoMUhKk0re6hMh1vo31KiEZn2Cn6ZmsBs2MXI81nJvCMTmGMC5+f1/oos78gNjew36lSZnZ3EmwHJQZ7Zw3pqVlqsb7Abk2+6sCrJoQBtuqN3HzVRY83cBb1VQMxcrWm5JAV7/BEHAboig8tgs0LbandxWJjPDYaX0UpjbbDZWF+MzDpZXKxv1VwWmGRo5FfRvZxX/tDhHCqhxu/ue6cfNhy/ovnEOsF2nsSxAzYBU0ZOtNUlwv0eAfuCuj38d8e/8el+m565Nf66vEb2WQ6FYoDmCzgALyHu2sTyRuo8hJFwbDmpD/UqJM/TRElQK57QxxJta5JPIL5hxqvdiuMVtc43/ETPePS+n0svoLjfEf2bw3ilYDleync1v+53hH3Xzi0WaB0Fl6fQw+5PH/U8/wCuIrXBLnorl6TyUaYHUqPINCfJTJrWUV41HQ6LNaxYr3a4+SRjwkeSpfwFUacrgTprYqKzEAjz0WJwIcsrNSBztZWvALvXRFXxPAIBNr/RbCM3Aa4b6ErVuAIIA1tdTKSfvG+LUtH0RYl6mxfvfI8D6FYpWHu3denmsrvC8E7PABt9CkmnS97WUVidd7GSX6K86m9lSAZmSRnobfdXAWNgFrFnKMVUC5jGD8zgrhsAqTalvUbIxtgtONlGiuaOaxgq4G6Dc8M47UcPY3Q4tSuyzUU7J2eeUg2+IuPiv0BwzEKfFsNpcQpXh9PVRMmjcObXAEfdfnVG6zgfNfYXszcUftzs+/Zsry6fCJ3QWJ17p3iZ93D4KK66iIqgiIq0IiKMrXuaxhc4gNAuSeQXwJ2hcQO4m4xxnGC7M2rq3vZ5MBys/wCIC+ye2PiE8M9muPVzH5JnUxp4TexzyeAW8/ET8F8JzG7rDYKVYxuKs3V5CxndVGN4I15Kx5zRkdQs5F9FGf4T5IL6M5mEdNFnfoN1Foz45B6FZ5DYILqMXnzWuBqspeQC73i43v1/sq2iv3T3W8rrMYx3rWj3Y23Pl/f6rFbxnpgktmsdm6lQiS4ucdybqTUOsCNydSozj4SfJFY33LreQVpOjsp8grzYEHoLq3LpbyugtjZe3mVSUXe1vQrMywbfk3VYwPGS47C5QZWge90WePTVYo2305hSGCwVjOSoaqpdUvqtMrgPNdI7E8Q7nHqygcfDU02dv+5jv6OK5uNV6Xs8rhh/GOGSudlY+XuXHyeC37kLh58fLjsc/Wz8eXGvpelcSLDRSHOI+ChUjspAKkSSeG68J9NVJX21BuoM0x9FknlIsoM79d1NjnnbRiRhwClo2us6rqLuHVrBf7lq44NfJe67X8R/FcRQUTXXbSQC/k55ufoAvCr2+ph48UfPd7Py5r/wOitJRxPJUBvoV2XTY5ASsDxpboVKc24UdxGctO9rqVYj6Zi077qyW+U/NZC0GU9dlY8akdBZZaZScviHQJK3QO9CqH/Casg/eQW6Aj5IrEDoPI2+CRvMcgc33mm4VG6MHVXOHj9RcINox4lh00GW48vJUdmLNtW7/wB+ii4dL3bjG43Ddfgd1MLe7lLd2uGijSxj8kgduLD+/qr3Nyv6WWB4s1wOhbpZZ5jfK4cwPnZWfUy+MMmsg6WVbgDdY3us/wBAjbv8gtuJe1xcbDZZgLK1oDRors1ygvauy+zJxT+xOPm4XI+0GLwugN9u9b4mf/0PiuMtJWywHFp8DxejxOmcWzUczJ2EHm1wP6IsfogijYbXw4rh1LiFM4OgqomTxkc2uAI+6kogiIq0IiKMuCe1pjxpuH8GwNjtayofUyAfwxtsP+T/AKL5Xfq42XZPaixz9pdo/wCCY4FmGUkcFhyc7xu//Zq4yXaqNfFCeitJQnVUO11WQkhYZBbVZHHRYXuJ5IlUpXWkcPJZpHaWUenN5iLclmdq690VNo2ZYWt6uzH05K5x8D5DYGR17dAP/hKYlsRdzAJVlU6wji2OgP3Kw5fkQ3eMm/W6xP8AFkHWwUlwB1G+uiwAXcbctkRjcwkn/UVYbucfMgBZTuT0uqU7LEuOzfugPHgt1P0VgOa3m66ucdd1cxuoPQILoHfvHNUkaqGAQRJvY3UxpDmgjmtuMKWVU3KKDRZoZ300jJ4zZ8bmvbbqCD+iwg67K4myl+E9Xb6rpKtlZTw1MZ8E0bZB6EA/qs0k2S5voeS8l2Z4kcS4Lw6R5JMDDTu02LCQPpZbmvrBG3fTVeByY3G2PpuLPyxlSZajM21/NQJZtdSFDOIteQA7UjRQOI8TGGYDiFY53iigc5nm4iw+pC48ZbdOW5TGWuJ8T4j+1uI8SrQbtkqH5P8AaDYfQLWqjdAAqgr6LGeMkfK55XLK2/lSyoforrG6otMqGwFzyUIeKXMeellKmNxkHPf0WGUBouNwpVjDID3t/RWvbdx9bLO/xEHkQsRuC09bXWWqtIIZbzWSAe80nmrHf4bnearCczwTzRVrRl0+CuktkiPMXCo6+d3rujjeO3MORFzXZJmSciLFbGxMV/zR/Za212a30UulqM2XqRYpWoyOs4X3zhXHVjAjW2yNdycW36hVI2G2/wB0n0y+IztZTfksjFhbcyOPK6yghvmuSOJlBsFUKxrr76K66aGQLKy11hBV7DYqD7V9nfiH9u9mOHwveHTYa59E/W5s03Z/xcPkumL5o9kfHMmJY9gj3C00UdXGCebTkd9HN+S+l1ItERFpRUVVp+McVGB8J4xiZdl/C0U0oPmGG31soy+F+0PGzxDxpjuJ5szamumcw3v4Q4tb9AF5l26zTON9dzqb9VgKkaq02OqtvoqjRUIVZUJBWJ5CvdosT9EFlOf3/wACFIfZouT6KNF/jD4qTILkdUE6naRFGN7m5WOYf9wwXH5nEn5LPTjwcvdChySXke7a3hWHLfi0kuJt1Nlja20YP+pZmx5YiegH9UeAIWHoHOKIiOBbcFZi0Miaw7kZj6qkjNRbmforpTmN7acvQIiPa5A+KvAtpfklrvuNLC3xVzRv9FS/FwbfRXQEtJjPLb0VW+FWyaEPHJaYZSmyq0hzQ4KnNBW6DdUsqg20QZoMWrsLmD6SuqaUn/7UpZf5brbs7QuIyzK7E++bt+9ja4/O115uq5HoVjuFjLjxy+xyY8ueP9a9UztCxqE+F9M49TH/AO1HxTjrGcepXUFZJD3DyC4Rx2JsbjVebfYDZZKNty4+dlmcHHLuRq9jls1cqkgJZUKqFyuFRNt1VYpjqGjmgt94l3VWvbe91lYByVHCxugxxjPEL7gqNrlNz7qkxC0hZ0CjyAC4WHIWGV/S90gGx87LIwD3TzVkJynL6ohI2zj5tuqEWaT0IKyzCz2g822+6xk2Y4b3AsiqOuQLeqvpzZxGxBVrG6kcgAqMFptP71QbIOzRi35T/f6pUEjLy0P3VlONXg21018lWewblPS6Y/Vy+IsR1JHVZmjW91giPJZmnktuJk0VRqqAqt7Kyi5pWRvVY22V4NlB0z2fsa/Y3anguZ2WOsc+jdrvnYcv/INX2uvzy4dxF2FY5huIscQ6jqoqgW5ZXA/ov0LjkbLG2Rhu14zA9QdVFq5ERaUO6552/wBRJT9kfEDozYvjjjP+10rAfoiKMvh+YkvJPVYiiILTuqIiDGFil2REGOI/vmqTv80RBNb4YxbmAobzo/8A3FEWY5KkyaRaaXcAqSAZGC35AiJUYnayt+KtdqR6ORFBY3RuYb7q9oGVnoiKwvxksEtpZEWmFtOfebyBWQ7oiBdUCIgx1H+EVHbqiIKP2Wak/wAM+qIgzqqIgqN1gBzPcT1siIKt0JVx1CIgwsP/AHP8v6rDN75RFPy2v2ZG7msUZvOR5/oURQZpj+8H99VjtoPQfZEUVUbv9FYDab+YhERE25abj+I/orq82Bt/CiKwqLDrYrMN0RaYZNhdUaSURBcN1ffZEQZ4dQV9/wDANVLW8D4BUzG8kuHU7nHqe7aiIN+iIq0//9k=">
+ <small>ELECTRONIC PROFESSIONAL PORTFOLIO</small>
+ <h1>Rhian Louise L. Mamayabay</h1>
+ <p class="role">Web Designer | Film &amp; Video Editing</p>
+ <div class="chips">
+  <span>✉ mamayabayrhianlouise@gmail.com</span><span>☎ 0950-073-9601</span><span>IG: @_.diarhi</span><span>📍 Bislig City, Caraga Region, Philippines</span>
+ </div>
+ <div class="cta"><a class="btn" href="#s7">VIEW SAMPLES OF WORK ➜</a><a class="btn ghost" href="#s4">VIEW RESUME</a></div>
+ <p class="prep">Prepared: September 2032</p>
+</header>
+
+<section id="s1"><h2>Career Summary</h2>
+<div class="card"><p>Web designer and multimedia editor with two years of experience building websites and creating photo and video content for clients. Good at combining clean design with storytelling to make websites and videos that connect with people. Now looking to grow into a Creative or Web Design Lead role where I can handle bigger projects and help train new designers and editors.</p></div></section>
+
+<section id="s2"><h2>Philosophy Statement</h2>
+<div class="card"><p>I believe good design and good video work follow the same principle: the audience should not have to work hard to understand the message. Whether building a website, editing a photo, or cutting a video, I ensure that every choice serves a clear purpose. I also value continuous learning, and I regularly study new design trends, editing tools, and techniques to keep improving my craft.</p></div></section>
+
+<section id="s3"><h2>Short Biography</h2>
+<div class="card"><p>Rhian Louise L. Mamayabay completed her degree in Bachelor of Science in Information Technology at Caraga State University in 2030. During her college years, she began providing photography and video services for campus events, which grew into a strong interest in visual storytelling. After graduating, she worked as a freelance Web Designer, building websites for small businesses and local organizations, while also taking on photography and video editing projects for various clients and events. Outside of her professional work, she volunteers her filming and editing skills for community initiatives and continues to develop her abilities through online courses in web design and filmmaking.</p></div></section>
+
+<section id="s4"><h2>Resume</h2>
+<div class="card"><h3>Rhian Louise L. Mamayabay</h3><p class="meta">P-3 Comawas, Bislig City, Surigao del Sur | 0950-073-9601<br>mamayabayrhianlouise@gmail.com</p></div>
+<div class="label">OBJECTIVE STATEMENT</div>
+<div class="card"><p>Creative and detail-oriented Web Designer and Video Editor with two years of hands-on experience building functional, user-friendly websites and producing engaging multimedia and film content. Seeking to bring proven technical and creative skills to an organization where I can continue to grow professionally and deliver high-quality digital and visual solutions.</p></div>
+<div class="label">WORK EXPERIENCE</div>
+<div class="card"><div class="row"><h3>Web Designer</h3><span class="date">July 2030 – Present</span></div><p class="meta">Infinity Hub, Davao City</p>
+<ul><li>Design, develop, and maintain responsive, user-friendly websites for company and client projects.</li><li>Collaborate with the development team to translate design concepts into functional web pages.</li><li>Optimize page layouts, graphics, and UI elements to improve user experience and site performance.</li></ul></div>
+<div class="card"><div class="row"><h3>Freelance Video &amp; Film Editor</h3><span class="date">August 2030 – Present</span></div><p class="meta">Self-Employed / Independent Projects</p>
+<ul><li>Edit and produce short films, promotional videos, and social media content for individual and small-business clients.</li><li>Handle color grading, sound design, and motion graphics to enhance storytelling and visual quality.</li><li>Manage projects end-to-end, from raw footage organization to final export and client delivery.</li></ul></div>
+<div class="label">EDUCATION</div>
+<div class="grid">
+<div class="card"><h3>Bachelor of Science in Information Technology</h3><p class="meta">Caraga State University, Ampayon, Butuan City</p><span class="date">2029 – 2030</span></div>
+<div class="card"><h3>Senior High School, TVL Strand</h3><p class="meta">Saint Vincent de Paul Diocesan College, Mangagoy, Bislig City</p><span class="date">2025 – 2026</span></div>
+<div class="card"><h3>Junior High School</h3><p class="meta">Saint Vincent de Paul Diocesan College, Mangagoy, Bislig City</p><span class="date">2023 – 2024</span></div>
+<div class="card"><h3>Primary Education</h3><p class="meta">Balingan Central Elementary School, P-5 Comawas, Bislig City</p><span class="date">2019 – 2020</span></div></div>
+<div class="label">CERTIFICATION AND TRAININGS</div>
+<div class="grid">
+<div class="card"><h3>Web Development Bootcamp Certificate</h3><p class="meta">Caraga State University – College of Information and Computing Sciences</p><span class="date">2029</span></div>
+<div class="card"><h3>Seminar on Information Assurance and Security</h3><p class="meta">Society of Information Technology Students – Caraga State University</p><span class="date">2028</span></div>
+<div class="card"><h3>National Service Training Program</h3><p class="meta">Civic Welfare Training Service – Caraga State University</p><span class="date">2026</span></div></div>
+<div class="label">SKILLS</div>
+<div class="card"><ul><li>Media and Entertainment Skill</li><li>Problem-Solving Skill</li><li>Design Ideas</li><li>Computer Skills</li></ul></div>
+<div class="label">AWARDS AND ACTIVITIES</div>
+<div class="card"><ul><li>Academic Awardee (with Honor) — Saint Vincent de Paul Diocesan College, 2025 – 2026</li><li>Academic Awardee (with Honor) — Saint Vincent de Paul Diocesan College, 2023 – 2024</li><li>Consistent Honor Student, Elementary (Day Care to Grade 6) — Balingan Central Elementary School, 2018 – 2019</li></ul></div>
+<div class="label">JOINED ORGANIZATIONS</div>
+<div class="card"><ul><li>Vincentian Force, Member — Saint Vincent de Paul Diocesan College, 2024 – 2025</li><li>Supreme Pupil Government (SPG), Peace Officer — Balingan Central Elementary School, 2019 – 2020</li><li>Society of Information Technology Students, Member — Caraga State University, 2026 – 2030</li></ul></div>
+<div class="label">CHARACTER REFERENCE</div>
+<div class="card"><p><b>Petervir Paz</b><br><span class="meta">Workplace Communication Adviser</span></p><p><b>Dr. Jaymer M. Jayoma</b><br><span class="meta">Dean | College of Computing and Information Sciences | Caraga State University</span></p><p><b>Juan A. Delacruz</b><br><span class="meta">Supervisor, Infinity Hub</span></p></div></section>
+
+<section id="s5"><h2>Marketable Skills and Abilities</h2>
+<div class="card"><ul><li>Website design and development (layout, UI basics, responsive design)</li><li>Photography and photo editing using Adobe Lightroom and Photoshop</li><li>Video editing and filming using Adobe Premiere Pro and CapCut</li><li>Event documentation and press release writing</li><li>Basic knowledge of HTML, CSS, and website builders</li><li>Visual storytelling and content planning for digital platforms</li><li>Proficient in Microsoft Office and Google Workspace</li></ul></div></section>
+
+<section id="s6"><h2>Professional Accomplishments</h2>
+<div class="card"><ul><li>Designed and launched websites for three small businesses and one community organization, improving their online presence.</li><li>Filmed and edited a short documentary for a local community initiative, later featured at a regional youth event.</li><li>Built a personal photography and videography portfolio that generated repeat clients through referrals.</li></ul></div></section>
+
+<section id="s7"><h2>Samples of Work</h2>
+<div class="grid">
+<div class="card"><h3>Business Website — “Café Verde Local Roastery”</h3><span class="date">2025</span><p>A responsive website I designed and built for a local coffee shop, including homepage layout, menu page, and online contact form.</p><p class="meta">Link: https://www.cafeverde.com/srsltid=AfmBOorwn34TnYIdhJk</p></div>
+<div class="card"><h3>Short Film — “Tahanan”</h3><span class="date">2025</span><p>A short narrative film about a family adjusting to life after a fisherman father’s long time away at sea, shot around coastal areas of Bislig City. I handled filming, editing, and color grading.</p><p class="meta">Link: <a href="https://youtube.com/@diarhifilms" target="_blank" rel="noopener">youtube.com/@diarhifilms</a></p></div>
+<div class="card"><h3>Portfolio Website — Personal Brand Site</h3><span class="date">2024</span><p>A one-page personal portfolio site I designed from scratch to showcase my web design, photography, and video work in one place.</p><p class="meta">Link: diarhidesigns.com</p></div>
+<div class="card"><h3>Travel Vlog Edit — Caraga Tourism Series</h3><span class="date">2024</span><p>Edited a 3-part travel vlog series promoting tourist spots in the Caraga Region, including drone footage integration and motion graphics.</p><p class="meta">Link: <a href="https://youtube.com/@diarhifilms" target="_blank" rel="noopener">youtube.com/@diarhifilms</a></p></div>
+</div></section>
+
+<section id="s8"><h2>Awards and Honors</h2>
+<div class="card"><ul><li>Best Short Film, CSU Student Film Festival — 2029</li><li>People’s Choice Award, Regional Youth Photography Exhibit — 2030</li><li>Top Freelancer Recognition, Local Business Network — Q3 2031</li></ul></div></section>
+
+<section id="s9"><h2>Transcripts, Degrees, Licenses, and Certifications</h2>
+<div class="card"><ul><li>Bachelor of Science in Information Technology — Caraga State University, 2030</li><li>Certificate in Web Design Fundamentals — Google/Coursera, 2031</li><li>Certificate in Video Editing with Adobe Premiere Pro — Adobe/Udemy, 2031</li><li>Certificate in Photography Fundamentals — Photography Institute Philippines, 2029</li><li>Certificate in UI/UX Design Basics — Coursera, 2030</li></ul></div></section>
+
+<section id="s10"><h2>Professional Development Activities</h2>
+<div class="card"><ul><li>Web Design Fundamentals Workshop — Caraga Creatives Circle, March 2031</li><li>Cinematography and Lighting Seminar — Philippine Filmmakers Society, August 2031</li><li>Advanced Video Editing Training — CSU Alumni Association, June 2030</li></ul></div></section>
+
+<section id="s11"><h2>Volunteering / Community Service</h2>
+<div class="card"><ul><li><b>Videographer (Volunteer) — Kabataan Mentorship Program, 2030–Present:</b> Film and edit short recap videos to promote mentorship sign-ups and events.</li><li><b>Documentation Volunteer — Brigada Eskwela, Bislig City, 2030:</b> Took event photos and produced a short highlight video for the school’s Facebook page.</li><li><b>Photo Documentation Volunteer — Coastal Cleanup Drive, Bislig City, 2031:</b> Captured event photos and produced a short recap video to raise awareness for future cleanup drives.</li><li><b>Website Volunteer — Bislig City Youth Council, 2029–2030:</b> Designed and maintained a simple website to post community announcements and event schedules.</li></ul></div></section>
+
+<section id="s12"><h2>References / Testimonials</h2>
+<div class="card wide"><table><thead><tr><th>NAME</th><th>POSITION / COMPANY</th><th>CONTACT INFORMATION</th></tr></thead><tbody>
+<tr><td>Mr. Peterviz Paz</td><td>Communication Adviser, Caraga State University</td><td>petervizpaz@carsu.edu.ph</td></tr>
+<tr><td>Dr. Jaymer M. Jayoma</td><td>Dean, College of Information and Computing Sciences</td><td>-</td></tr>
+<tr><td>Ms. Carla Estrada</td><td>Creative Director, Bislig Multimedia Studio</td><td>carla.reyes@bislmedia.ph</td></tr></tbody></table></div>
+<div class="label">TESTIMONIALS</div>
+<blockquote>“Rhian brings a strong eye for visual detail and consistently delivers polished websites and videos ahead of schedule. Her creative instincts have helped us connect with audiences in ways our previous content never did.”<cite>— Carla Estrada, Creative Director, Bislig Multimedia Studio</cite></blockquote></section>
+
+<footer>© 2032 Rhian Louise L. Mamayabay · Electronic Professional Portfolio<br>Web Designer | Film &amp; Video Editing</footer>
+<div class="pager"><button id="prev">← Previous</button><button id="next">Next →</button></div>
+</main>
+</div>
+<script>
+
+const secs=[...document.querySelectorAll('section')],nav=document.getElementById('nav'),hero=document.querySelector('.hero'),pager=document.querySelector('.pager');
+const names=secs.map(s=>s.querySelector('h2').textContent),pad=n=>String(n).padStart(2,'0');
+const homeBtn=document.createElement('button');homeBtn.textContent='Home';homeBtn.onclick=()=>{location.hash='home'};nav.appendChild(homeBtn);
+const btns=names.map((n,i)=>{const b=document.createElement('button');b.innerHTML='<span>'+(i+1)+'.</span>'+n;b.onclick=()=>{location.hash=secs[i].id};nav.appendChild(b);return b});
+document.querySelector('.brand').onclick=()=>{location.hash='home'};
+secs.forEach((s,i)=>{const e=document.createElement('div');e.className='eye';e.textContent='\u2014 PAGE '+pad(i+1)+' OF '+secs.length+' \u2014';s.prepend(e)});
+const menu=document.createElement('div');menu.className='menu';
+menu.innerHTML='<div class="eye">\u2014 TABLE OF CONTENTS \u2014</div><div class="mgrid">'+names.map((n,i)=>'<a class="mcard" href="#'+secs[i].id+'"><b>'+pad(i+1)+'</b><span>'+n+'</span></a>').join('')+'</div>';
+hero.after(menu);
+const prev=document.getElementById('prev'),next=document.getElementById('next');
+prev.onclick=()=>{const i=cur();location.hash=i>0?secs[i-1].id:'home'};
+next.onclick=()=>{const i=cur();location.hash=i<secs.length-1?secs[i+1].id:'home'};
+function cur(){return secs.findIndex(s=>s.id===location.hash.slice(1))}
+function show(){
+ const i=cur(),home=i<0;
+ hero.style.display=home?'':'none';menu.style.display=home?'':'none';pager.style.display=home?'none':'flex';
+ secs.forEach((s,k)=>s.classList.toggle('on',k===i));
+ btns.forEach((b,k)=>b.classList.toggle('on',k===i));homeBtn.classList.toggle('on',home);
+ (home?homeBtn:btns[i]).scrollIntoView({block:'nearest',inline:'center'});
+ if(!home){prev.textContent='\u2190 '+(i>0?names[i-1]:'Home');next.textContent=(i<secs.length-1?names[i+1]:'Back to Home')+' \u2192';document.title=names[i]+' | Rhian Louise L. Mamayabay'}
+ window.scrollTo(0,0);
+}
+
+document.getElementById('theme').onclick=()=>{const r=document.documentElement,d=matchMedia('(prefers-color-scheme:dark)').matches;
+const now=r.dataset.theme||(d?'dark':'light');r.dataset.theme=now==='dark'?'light':'dark'};
+addEventListener('hashchange',show);show();
+</script>
+</body>
+</html>
